@@ -1,0 +1,419 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 80px 14%;
+}
+
+footer {
+  padding: 20px 3%;
+}
+
+header {
+  padding: 10px 14%;
+}
+
+.heading {
+  text-align: center;
+  padding: 3rem;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.col-md-6,
+.col-md-2,
+.col-md-5 {
+  margin-bottom: 1rem;
+}
+
+.cta {
+  padding: 0.7rem 1.5rem;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: rgb(255, 85, 0);
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+.cta:hover {
+  background: #fff;
+  color: #000;
+}
+
+.brand .fa,
+.contact .fa,
+.services .fa {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  background: rgb(255, 85, 0);
+  border-radius: 50%;
+  color: #fff;
+  margin-bottom: 1rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+.brand .fa:hover,
+.contact .fa:hover,
+.services .fa:hover {
+  color: rgb(255, 85, 0);
+  background: #fff;
+}
+
+@-webkit-keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+@-webkit-keyframes movedown {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes movedown {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(10, 10, 44);
+  box-shadow: 0 4px 6px 0 rgba(12, 0, 46, 0.5);
+  height: auto;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1400px) {
+  section {
+    padding: 50px 3%;
+    transition: 0.5s ease;
+  }
+  header {
+    padding: 7px 3%;
+    transition: 0.5s ease-in-out;
+  }
+}
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .logo {
+  color: #fff;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2rem;
+}
+header .myul {
+  display: flex;
+  transition: 0.5s ease-in-out;
+  padding-top: 13px;
+}
+header .myul.active {
+  margin-top: 0;
+}
+header .myul a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+header .myul a:hover::before {
+  width: 100%;
+}
+header .myul a::before {
+  content: "";
+  position: absolute;
+  top: 94%;
+  width: 0;
+  height: 5%;
+  background: rgb(255, 85, 0);
+  transition: 0.5s ease-in-out;
+}
+header .hamburger {
+  display: none;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+header .icon a {
+  color: #fff;
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0;
+  }
+  header .logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    padding: 0.5rem;
+  }
+  header .myul {
+    flex-direction: column;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background: rgb(10, 10, 44);
+    justify-content: center;
+    margin-top: -30rem;
+    padding: 0;
+  }
+  header .myul li {
+    line-height: 4rem;
+    border-bottom: 1px dotted rgb(149, 143, 143);
+  }
+  header .myul li a {
+    color: #fff;
+  }
+  header .icon {
+    position: absolute;
+    z-index: 1;
+    right: 14%;
+    top: 0%;
+    padding: 0.5rem;
+  }
+  header .icon span {
+    display: none;
+  }
+  header .hamburger {
+    display: block;
+  }
+}
+.home {
+  padding-top: 8rem;
+  background: linear-gradient(207deg, rgb(90, 90, 208) 50%, rgb(188, 188, 207) 50%);
+}
+.home .home-text img {
+  width: 400px;
+  max-width: 100%;
+  -webkit-animation: move 0.9s linear infinite;
+          animation: move 0.9s linear infinite;
+}
+.home .home-text span {
+  color: rgb(0, 234, 255);
+}
+.home .home-text h1 {
+  color: #fff;
+  line-height: 4rem;
+  font-weight: 900;
+}
+.home label {
+  padding-bottom: 1rem;
+}
+.home form {
+  background: transparent;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0.9rem;
+  color: #fff;
+  cursor: pointer;
+}
+.home form input,
+.home form select,
+.home form textarea {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  background: transparent;
+}
+.home form input::-moz-placeholder, .home form select::-moz-placeholder, .home form textarea::-moz-placeholder {
+  color: #000;
+}
+.home form input:-ms-input-placeholder, .home form select:-ms-input-placeholder, .home form textarea:-ms-input-placeholder {
+  color: #000;
+}
+.home form input::placeholder,
+.home form select::placeholder,
+.home form textarea::placeholder {
+  color: #000;
+}
+.home form .form-group {
+  padding: 0.8rem;
+}
+.home button {
+  border: none;
+}
+
+.services {
+  background: linear-gradient(90deg, rgb(223, 223, 231) 30%, rgb(232, 232, 244) 70%);
+}
+.services .services-card {
+  border: 1px dotted gray;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  border-radius: 4px;
+}
+.services .services-card:hover {
+  background: rgb(255, 85, 0);
+  color: #fff;
+}
+
+.feature {
+  background: linear-gradient(207deg, rgb(90, 90, 208) 50%, rgb(188, 188, 207) 50%);
+}
+.feature .feature-img img {
+  width: 300px;
+  height: 500px;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-animation: move 0.9s linear infinite;
+          animation: move 0.9s linear infinite;
+}
+
+.market-research {
+  background: linear-gradient(90deg, rgb(223, 223, 231) 30%, rgb(232, 232, 244) 70%);
+}
+.market-research .mr-card {
+  padding: 0.5rem;
+  border: 1px dotted rgb(149, 143, 143);
+  height: 100%;
+  width: 100%;
+}
+.market-research .mr-card .mr-img {
+  width: 80px;
+  margin: auto;
+}
+.market-research .mr-card .mr-img img {
+  max-width: 100%;
+  height: auto;
+}
+.market-research .graph-img {
+  width: 350px;
+  height: 300px;
+  text-align: center;
+}
+.market-research .graph-img img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.brand {
+  background: linear-gradient(207deg, rgb(90, 90, 208) 50%, rgb(188, 188, 207) 50%);
+}
+.brand .brand-right .brand-btn a {
+  color: rgb(255, 85, 0);
+  padding-right: 0.5rem;
+}
+
+.contact {
+  background: linear-gradient(90deg, rgb(223, 223, 231) 30%, rgb(232, 232, 244) 70%);
+}
+.contact .contact-left span {
+  background: rgb(255, 85, 0);
+  font-size: 4rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.contact .contact-left img {
+  width: 180px;
+  height: 300px;
+  max-width: 100%;
+  -webkit-animation: movedown 0.9s linear infinite;
+          animation: movedown 0.9s linear infinite;
+}
+.contact .contact-left h4 {
+  padding: 1rem 0;
+}
+.contact .contact-right button {
+  background: rgb(63, 149, 63);
+  padding: 0.5rem;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+.contact .contact-right .input-group {
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1000px) {
+  .contact .contact-left span {
+    font-size: 2.5rem;
+    padding: 0.1rem;
+  }
+}
+footer {
+  background: rgb(10, 10, 44);
+}
+footer .footer-link h5 {
+  color: #fff;
+}
+footer .footer-link h2 {
+  color: rgb(0, 234, 255);
+}
+footer .footer-link p {
+  color: rgb(149, 143, 143);
+}
+footer .footer-link a {
+  color: rgb(149, 143, 143);
+  line-height: 2rem;
+}/*# sourceMappingURL=style.css.map */

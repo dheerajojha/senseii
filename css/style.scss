@@ -1,0 +1,446 @@
+// <======================================variables start==================================>
+$big_font: 4rem;
+$medium_font: 3rem;
+$small_font: 2rem;
+$smaller_font: 1rem;
+$primary_color: rgb(255, 85, 0);
+$secondry_color: rgb(0, 234, 255);
+$text_white: #fff;
+$text_black: #000;
+$text_gray: rgb(149, 143, 143);
+$primary_bg: linear-gradient(
+  207deg,
+  rgb(90, 90, 208) 50%,
+  rgb(188, 188, 207) 50%
+);
+$secondry_bg: linear-gradient(
+  90deg,
+  rgb(223, 223, 231) 30%,
+  rgb(232, 232, 244) 70%
+);
+$effect: 0.5s ease-in-out;
+$footer_bg: rgb(10, 10, 44);
+
+@mixin bg {
+  background-position: center;
+  background-size: cover;
+}
+
+// <======================================global start==================================>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // border: 1px solid red;
+  list-style-type: none;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none !important;
+}
+
+h1 {
+  font-size: $big_font;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 80px 14%;
+}
+footer {
+  padding: 20px 3%;
+}
+header {
+  padding: 10px 14%;
+}
+.heading {
+  text-align: center;
+  padding: 3rem;
+}
+h1 {
+  font-size: $big_font;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: $medium_font;
+}
+h3 {
+  font-size: $small_font;
+  margin-bottom: 1rem;
+}
+h4 {
+  margin-bottom: 1rem;
+}
+p {
+  font-size: $smaller_font;
+  margin-bottom: 1rem;
+}
+
+.col-md-6,
+.col-md-2,
+.col-md-5 {
+  margin-bottom: 1rem;
+}
+
+.cta {
+  padding: 0.7rem 1.5rem;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: $primary_color;
+  color: $text_white;
+  transition: $effect;
+  &:hover {
+    background: $text_white;
+    color: $text_black;
+  }
+}
+
+.brand,
+.contact,
+.services {
+  .fa {
+    font-size: 1.7rem;
+    padding: 0.8rem;
+    background: $primary_color;
+    border-radius: 50%;
+    color: $text_white;
+    margin-bottom: 1rem;
+    transition: $effect;
+    cursor: pointer;
+    &:hover {
+      color: $primary_color;
+      background: $text_white;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes movedown {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $footer_bg;
+  box-shadow: 0 4px 6px 0 rgba(12, 0, 46, 0.5);
+  height: auto;
+  transition: $effect;
+}
+
+@media screen and (max-width: 1400px) {
+  section {
+    padding: 50px 3%;
+    transition: 0.5s ease;
+  }
+  header {
+    padding: 7px 3%;
+    transition: $effect;
+  }
+}
+// <======================================header start==================================>
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .logo {
+    color: $text_white;
+    font-style: italic;
+    font-weight: 700;
+    font-size: $small_font;
+  }
+  .myul {
+    display: flex;
+    transition: $effect;
+    padding-top: 13px;
+    &.active {
+      margin-top: 0;
+    }
+
+    a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: $text_white;
+      position: relative;
+      &:hover::before {
+        width: 100%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 94%;
+        width: 0;
+        height: 5%;
+        background: $primary_color;
+        transition: $effect;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    color: $text_white;
+    cursor: pointer;
+    padding: 0.3rem;
+  }
+  .icon {
+    a {
+      color: $text_white;
+      padding: 0.5rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0;
+    .logo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      padding: 0.5rem;
+    }
+    .myul {
+      flex-direction: column;
+      position: absolute;
+      top: 0%;
+      left: 0;
+      width: 100%;
+      height: 60vh;
+      background: $footer_bg;
+      justify-content: center;
+      margin-top: -30rem;
+      padding: 0;
+      li {
+        line-height: 4rem;
+        border-bottom: 1px dotted $text_gray;
+        a {
+          color: $text_white;
+        }
+      }
+    }
+    .icon {
+      position: absolute;
+      z-index: 1;
+      right: 14%;
+      top: 0%;
+      padding: 0.5rem;
+      span {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+}
+// <======================================Home start==================================>
+.home {
+  padding-top: 8rem;
+  background: $primary_bg;
+  .home-text {
+    img {
+      width: 400px;
+      max-width: 100%;
+      animation: move 0.9s linear infinite;
+    }
+    span {
+      color: $secondry_color;
+    }
+    h1 {
+      color: $text_white;
+      line-height: 4rem;
+      font-weight: 900;
+    }
+  }
+  label {
+    padding-bottom: 1rem;
+  }
+  form {
+    background: transparent;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.9rem;
+    color: $text_white;
+    cursor: pointer;
+    input,
+    select,
+    textarea {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid gray;
+      background: transparent;
+      &::placeholder {
+        color: $text_black;
+      }
+    }
+    .form-group {
+      padding: 0.8rem;
+    }
+  }
+  button {
+    border: none;
+  }
+}
+
+// <======================================services start==================================>
+
+.services {
+  background: $secondry_bg;
+  .services-card {
+    border: 1px dotted gray;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    transition: $effect;
+    border-radius: 4px;
+    &:hover {
+      background: $primary_color;
+      color: $text_white;
+    }
+  }
+}
+
+// <======================================features start==================================>
+.feature {
+  background: $primary_bg;
+  .feature-img {
+    img {
+      width: 300px;
+      height: 500px;
+      max-height: 100%;
+      max-width: 100%;
+      animation: move 0.9s linear infinite;
+    }
+  }
+}
+// <======================================Market-research start==================================>
+.market-research {
+  background: $secondry_bg;
+  .mr-card {
+    padding: 0.5rem;
+    border: 1px dotted $text_gray;
+    height: 100%;
+    width: 100%;
+    .mr-img {
+      width: 80px;
+      margin: auto;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .graph-img {
+    width: 350px;
+    height: 300px;
+    text-align: center;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// <======================================brand start==================================>
+.brand {
+  background: $primary_bg;
+  .brand-right {
+    .brand-btn {
+      a {
+        color: $primary_color;
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
+
+// <======================================contact start==================================>
+.contact {
+  background: $secondry_bg;
+  .contact-left {
+    span {
+      background: $primary_color;
+      font-size: $big_font;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+    img {
+      width: 180px;
+      height: 300px;
+      max-width: 100%;
+      animation: movedown 0.9s linear infinite;
+    }
+    h4 {
+      padding: 1rem 0;
+    }
+  }
+  .contact-right {
+    button {
+      background: rgb(63, 149, 63);
+      padding: 0.5rem;
+      border-radius: 4px;
+      outline: none;
+      border: none;
+    }
+    .input-group {
+      border-radius: 4px;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .contact {
+    .contact-left {
+      span {
+        font-size: 2.5rem;
+        padding: 0.1rem;
+      }
+    }
+  }
+}
+// <======================================Footer start==================================>
+footer {
+  background: $footer_bg;
+  .footer-link {
+    h5 {
+      color: $text_white;
+    }
+    h2 {
+      color: $secondry_color;
+    }
+    p {
+      color: $text_gray;
+    }
+    a {
+      color: $text_gray;
+      line-height: 2rem;
+    }
+  }
+}
