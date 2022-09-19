@@ -46,13 +46,13 @@ h1 {
 }
 
 section {
-  padding: 80px 14%;
+  padding: 80px 10%;
 }
 footer {
   padding: 20px 3%;
 }
 header {
-  padding: 10px 14%;
+  padding: 10px 10%;
 }
 .heading {
   text-align: center;
@@ -264,7 +264,7 @@ header {
 .home {
   padding-top: 8rem;
   background: $primary_bg;
-  .home-text {
+  .home-left {
     img {
       width: 400px;
       max-width: 100%;
@@ -279,33 +279,46 @@ header {
       font-weight: 900;
     }
   }
-  label {
-    padding-bottom: 1rem;
-  }
-  form {
-    background: transparent;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 0.9rem;
-    color: $text_white;
-    cursor: pointer;
-    input,
-    select,
-    textarea {
-      outline: none;
-      border: none;
-      border-bottom: 1px solid gray;
+  .home-right {
+    form {
       background: transparent;
-      &::placeholder {
-        color: $text_black;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 0.9rem;
+      color: $text_white;
+      cursor: pointer;
+      input,
+      select,
+      textarea {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid gray;
+        background: transparent;
+        &::placeholder {
+          color: $text_black;
+        }
+      }
+      input {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      .form-group {
+        padding: 0.8rem;
+        label {
+          padding-bottom: 1rem;
+        }
+      }
+
+      .home-btn {
+        button {
+          border: none;
+        }
       }
     }
-    .form-group {
-      padding: 0.8rem;
-    }
-  }
-  button {
-    border: none;
   }
 }
 

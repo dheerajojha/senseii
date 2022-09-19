@@ -17,7 +17,7 @@ h1 {
 }
 
 section {
-  padding: 80px 14%;
+  padding: 80px 10%;
 }
 
 footer {
@@ -25,7 +25,7 @@ footer {
 }
 
 header {
-  padding: 10px 14%;
+  padding: 10px 10%;
 }
 
 .heading {
@@ -251,24 +251,21 @@ header .icon a {
   padding-top: 8rem;
   background: linear-gradient(207deg, rgb(90, 90, 208) 50%, rgb(188, 188, 207) 50%);
 }
-.home .home-text img {
+.home .home-left img {
   width: 400px;
   max-width: 100%;
   -webkit-animation: move 0.9s linear infinite;
           animation: move 0.9s linear infinite;
 }
-.home .home-text span {
+.home .home-left span {
   color: rgb(0, 234, 255);
 }
-.home .home-text h1 {
+.home .home-left h1 {
   color: #fff;
   line-height: 4rem;
   font-weight: 900;
 }
-.home label {
-  padding-bottom: 1rem;
-}
-.home form {
+.home .home-right form {
   background: transparent;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -276,29 +273,36 @@ header .icon a {
   color: #fff;
   cursor: pointer;
 }
-.home form input,
-.home form select,
-.home form textarea {
+.home .home-right form input,
+.home .home-right form select,
+.home .home-right form textarea {
   outline: none;
   border: none;
   border-bottom: 1px solid gray;
   background: transparent;
 }
-.home form input::-moz-placeholder, .home form select::-moz-placeholder, .home form textarea::-moz-placeholder {
+.home .home-right form input::-moz-placeholder, .home .home-right form select::-moz-placeholder, .home .home-right form textarea::-moz-placeholder {
   color: #000;
 }
-.home form input:-ms-input-placeholder, .home form select:-ms-input-placeholder, .home form textarea:-ms-input-placeholder {
+.home .home-right form input:-ms-input-placeholder, .home .home-right form select:-ms-input-placeholder, .home .home-right form textarea:-ms-input-placeholder {
   color: #000;
 }
-.home form input::placeholder,
-.home form select::placeholder,
-.home form textarea::placeholder {
+.home .home-right form input::placeholder,
+.home .home-right form select::placeholder,
+.home .home-right form textarea::placeholder {
   color: #000;
 }
-.home form .form-group {
+.home .home-right form input::-webkit-outer-spin-button, .home .home-right form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.home .home-right form .form-group {
   padding: 0.8rem;
 }
-.home button {
+.home .home-right form .form-group label {
+  padding-bottom: 1rem;
+}
+.home .home-right form .home-btn button {
   border: none;
 }
 
