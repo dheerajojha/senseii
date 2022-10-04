@@ -1,29 +1,51 @@
+// google font
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;1,700&display=swap");
+
 // <======================================variables start==================================>
 $big_font: 4rem;
 $medium_font: 3rem;
 $small_font: 2rem;
 $smaller_font: 1rem;
 $primary_color: rgb(255, 85, 0);
-$secondry_color: rgb(0, 234, 255);
-$text_white: #fff;
-$text_black: #000;
-$text_gray: rgb(149, 143, 143);
-$primary_bg: linear-gradient(
-  207deg,
-  rgb(90, 90, 208) 50%,
-  rgb(188, 188, 207) 50%
-);
-$secondry_bg: linear-gradient(
+$secondry_color: rgb(10, 10, 44);
+$tertery_color: linear-gradient(
   90deg,
   rgb(223, 223, 231) 30%,
   rgb(232, 232, 244) 70%
 );
+$text_white: #fff;
+$text_black: #000;
+$text_span: #6adfd7;
+$text_gray: rgb(149, 143, 143);
 $effect: 0.5s ease-in-out;
-$footer_bg: rgb(10, 10, 44);
 
 @mixin bg {
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+@mixin bg2 {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 50vh;
+  width: 100%;
+}
+@mixin glass {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@mixin br {
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 // <======================================global start==================================>
@@ -31,25 +53,21 @@ $footer_bg: rgb(10, 10, 44);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // border: 1px solid red;
+  // border: 1px solid green;
   list-style-type: none;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   scroll-behavior: smooth;
+  outline: none;
 }
 a {
   text-decoration: none !important;
 }
 
-h1 {
-  font-size: $big_font;
-  margin-bottom: 1rem;
-}
-
 section {
-  padding: 80px 10%;
+  padding: 80px 0;
 }
 footer {
-  padding: 20px 3%;
+  padding: 20px 0;
 }
 header {
   padding: 10px 10%;
@@ -58,24 +76,29 @@ header {
   text-align: center;
   padding: 3rem;
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-bottom: 1rem;
+}
+
+
 h1 {
   font-size: $big_font;
-  margin-bottom: 1rem;
 }
 h2 {
   font-size: $medium_font;
 }
 h3 {
   font-size: $small_font;
-  margin-bottom: 1rem;
-}
-h4 {
-  margin-bottom: 1rem;
 }
 p {
   font-size: $smaller_font;
-  margin-bottom: 1rem;
 }
+
 
 .col-md-6,
 .col-md-2,
@@ -85,11 +108,11 @@ p {
 
 .cta {
   padding: 0.7rem 1.5rem;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   background: $primary_color;
   color: $text_white;
   transition: $effect;
+  border: 1px solid $text_white;
+  @include br;
   &:hover {
     background: $text_white;
     color: $text_black;
@@ -115,21 +138,28 @@ p {
   }
 }
 
-@keyframes move {
+@keyframes typewritter {
   0% {
-    transform: translateX(0px);
+    content: "Web Designing";
   }
   50% {
-    transform: translateX(20px);
+    content: "Software Development";
+  }
+  100% {
+    content: "Online Marketing";
   }
 }
 
-@keyframes movedown {
+@keyframes rocketlauncher {
   0% {
-    transform: rotate(0deg);
+    transform: translate(0px, 0px);
   }
-  50% {
-    transform: rotate(10deg);
+  100% {
+    transform: translate(0px, -80px);
+    opacity: 0;
+  }
+  0% {
+    transform: translate(0px, 0px);
   }
 }
 
@@ -138,224 +168,242 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  background: $footer_bg;
+  background: $secondry_color;
   box-shadow: 0 4px 6px 0 rgba(12, 0, 46, 0.5);
   height: auto;
   transition: $effect;
 }
 
+@mixin bg {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+@mixin bg2 {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 50vh;
+  width: 100%;
+}
 @media screen and (max-width: 1400px) {
   section {
-    padding: 50px 3%;
-    transition: 0.5s ease;
+    padding: 50px 0;
+    transition: $effect;
   }
   header {
     padding: 7px 3%;
     transition: $effect;
   }
 }
+
 // <======================================header start==================================>
 header {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  .logo {
-    color: $text_white;
-    font-style: italic;
-    font-weight: 700;
-    font-size: $small_font;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  .navbar-toggler {
+    :focus {
+      outline: none;
+      border: none;
+    }
   }
-  .myul {
-    display: flex;
-    transition: $effect;
-    padding-top: 13px;
-    &.active {
-      margin-top: 0;
+  li {
+    a {
+      color: $text_white !important;
+      margin-left: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+    }
+  }
+}
+// <======================================Home start==================================>
+.home-wrapper {
+  padding-top: 8rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/index/home/pic1.jpg");
+  @include bg;
+}
+
+.home-left {
+  h2 {
+    color: $text_white;
+    line-height: 4.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5rem;
+
+    span {
+      &::after {
+        content: "";
+        animation: typewritter 0.9s linear infinite;
+        color: $text_span;
+      }
+    }
+  }
+  .home-btn {
+    img {
+      width: 50px;
+      height: 80px;
+      animation: rocketlauncher 0.7s 0.8s linear infinite;
+    }
+  }
+}
+.home-right {
+  form {
+    @include glass;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.9rem;
+    color: $text_white;
+    cursor: pointer;
+    input,
+    select,
+    textarea {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $text_gray;
+      background: transparent;
+      &::placeholder {
+        color: $text_black;
+      }
     }
 
-    a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: $text_white;
-      position: relative;
-      &:hover::before {
-        width: 100%;
+    .form-group {
+      padding: 0.8rem;
+      label {
+        padding-bottom: 1rem;
       }
+    }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 94%;
-        width: 0;
-        height: 5%;
-        background: $primary_color;
+    .home-btn {
+      button {
+        border: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    padding-top: 4rem;
+    height: 160vh;
+    transition: $effect;
+  }
+}
+
+// <======================================Counter start==================================>
+.counter-wrapper {
+  .counter-card {
+    height: 100%;
+    width: 100%;
+    i {
+      &:nth-child(1) {
+        color: $primary_color;
+      }
+    }
+  }
+}
+// <======================================services start==================================>
+
+.services-wrapper {
+  background: $tertery_color;
+  .services-card {
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 320px;
+    max-height: 100%;
+    max-width: 100%;
+    transition: $effect;
+    &:hover {
+      background-position: center right;
+    }
+
+    .services-icon {
+      .fa {
+        font-size: $big_font;
+        color: $text_white;
+      }
+    }
+    .services-text {
+      h4 {
+        color: $text_white;
         transition: $effect;
       }
     }
   }
 
-  .hamburger {
-    display: none;
-    font-size: 1.5rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-    color: $text_white;
-    cursor: pointer;
-    padding: 0.3rem;
+  .seo {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("/images/index/services/seo.webp");
   }
-  .icon {
-    a {
-      color: $text_white;
-      padding: 0.5rem;
-    }
+  .wd {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("/images/index/services/technology-wd.webp");
   }
-}
-@media screen and (max-width: 768px) {
-  header {
-    padding: 0;
-    .logo {
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 1;
-      padding: 0.5rem;
-    }
-    .myul {
-      flex-direction: column;
-      position: absolute;
-      top: 0%;
-      left: 0;
-      width: 100%;
-      height: 60vh;
-      background: $footer_bg;
-      justify-content: center;
-      margin-top: -30rem;
-      padding: 0;
-      li {
-        line-height: 4rem;
-        border-bottom: 1px dotted $text_gray;
-        a {
-          color: $text_white;
-        }
-      }
-    }
-    .icon {
-      position: absolute;
-      z-index: 1;
-      right: 14%;
-      top: 0%;
-      padding: 0.5rem;
-      span {
-        display: none;
-      }
-    }
-
-    .hamburger {
-      display: block;
-    }
+  .gd {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("/images/index/services/cd-ld.webp");
   }
-}
-// <======================================Home start==================================>
-.home {
-  padding-top: 8rem;
-  background: $primary_bg;
-  .home-left {
-    img {
-      width: 400px;
-      max-width: 100%;
-      animation: move 0.9s linear infinite;
-    }
-    span {
-      color: $secondry_color;
-    }
-    h1 {
-      color: $text_white;
-      line-height: 4rem;
-      font-weight: 900;
-    }
-  }
-  .home-right {
-    form {
-      background: transparent;
-      border-top-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      padding: 0.9rem;
-      color: $text_white;
-      cursor: pointer;
-      input,
-      select,
-      textarea {
-        outline: none;
-        border: none;
-        border-bottom: 1px solid gray;
-        background: transparent;
-        &::placeholder {
-          color: $text_black;
-        }
-      }
-      input {
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-      }
-
-      .form-group {
-        padding: 0.8rem;
-        label {
-          padding-bottom: 1rem;
-        }
-      }
-
-      .home-btn {
-        button {
-          border: none;
-        }
-      }
-    }
+  .dm {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("/images/index/services/digital-m.webp");
   }
 }
 
-// <======================================services start==================================>
+//<-------------- services inner page start------------>
 
-.services {
-  background: $secondry_bg;
-  .services-card {
-    border: 1px dotted gray;
-    padding: 1rem;
+.services-home-ip {
+  @include bg2;
+  color: $text_white;
+}
+.seo-ip {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images//services/seo/bg.webp");
+}
+.dm-ip {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images/services/digital-m/bg.webp");
+}
+
+.gd-ip {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images/services/gd/bg.webp");
+}
+
+.wd-ip {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images/services/wd/bg.webp");
+}
+
+.services-card-ip {
+  .card {
     width: 100%;
     height: 100%;
-    transition: $effect;
-    border-radius: 4px;
-    &:hover {
-      background: $primary_color;
-      color: $text_white;
+    img {
+      height: 250px;
+      max-height: 100%;
     }
   }
 }
+// <======================================about start==================================>
 
-// <======================================features start==================================>
-.feature {
-  background: $primary_bg;
-  .feature-img {
-    img {
-      width: 300px;
-      height: 500px;
-      max-height: 100%;
-      max-width: 100%;
-      animation: move 0.9s linear infinite;
-    }
-  }
+.about-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/images/about/bg.webp");
+  @include bg2;
+  color: $text_white;
 }
 // <======================================Market-research start==================================>
-.market-research {
-  background: $secondry_bg;
+.market-research-wrapper {
+  background: $tertery_color;
+
   .mr-card {
     padding: 0.5rem;
     border: 1px dotted $text_gray;
@@ -383,8 +431,11 @@ header {
 }
 
 // <======================================brand start==================================>
-.brand {
-  background: $primary_bg;
+.brand-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/index/brand/pic4.jpg");
+  color: $text_white;
+  background-attachment: fixed;
   .brand-right {
     .brand-btn {
       a {
@@ -395,18 +446,19 @@ header {
   }
 }
 
-// <======================================contact start==================================>
-.contact {
-  background: $secondry_bg;
+// <======================================contact-wrapper start==================================>
+.contact-wrapper {
+  background: $tertery_color;
   .contact-left {
     span {
       background: $primary_color;
-      font-size: $big_font;
       padding: 0.5rem;
       border-radius: 5px;
+      font-size: $big_font;
+      color: $text_white;
     }
     img {
-      width: 180px;
+      width: 220px;
       height: 300px;
       max-width: 100%;
       animation: movedown 0.9s linear infinite;
@@ -416,15 +468,26 @@ header {
     }
   }
   .contact-right {
-    button {
-      background: rgb(63, 149, 63);
-      padding: 0.5rem;
-      border-radius: 4px;
-      outline: none;
-      border: none;
+    form {
+      background: $secondry_color;
+      padding: 1rem;
+      @include br;
     }
-    .input-group {
-      border-radius: 4px;
+  }
+}
+
+.contact-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/contact/pic1.webp");
+  color: $text_white;
+}
+.contact-main {
+  .right {
+    a {
+      color: $text_black;
+    }
+    p {
+      color: $text_gray;
     }
   }
 }
@@ -434,26 +497,64 @@ header {
       span {
         font-size: 2.5rem;
         padding: 0.1rem;
+        @include br;
       }
     }
   }
 }
+
 // <======================================Footer start==================================>
 footer {
-  background: $footer_bg;
+  background: $secondry_color;
   .footer-link {
     h5 {
       color: $text_white;
     }
     h2 {
-      color: $secondry_color;
+      color: $text_span;
     }
     p {
       color: $text_gray;
     }
     a {
       color: $text_gray;
-      line-height: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+  .heading {
+    color: $text_white;
+    border-top: 1px dotted $text_gray;
+  }
+}
+
+// <======================================industries start==================================>
+.industries-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images/industries/pic1.webp");
+  @include bg2;
+  color: $text_white;
+}
+.industries-main {
+  .main-txt {
+    p {
+      padding: 1rem;
+      margin: 0.5re 0;
+      @include glass;
+    }
+  }
+}
+// <======================================digital-m start==================================>
+.digital-m-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("/images/services/service_bg.jpg");
+  color: $text_white;
+  @include bg;
+}
+.digital-m-main {
+  .main-left {
+    img {
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
   }
 }

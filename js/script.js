@@ -25,27 +25,23 @@ intlTelInput(input, {
   },
 });
 
-// let phone = document.querySelector("#phone").value;
-// let length = phone.length;
-// if (length > 1 && length > 10) {
-//   console.log("not allowed");
-// } else {
-//   console.loglog("allowed");
-// }
+// counter
 
-$(".count").each(function () {
-  $(this)
-    .prop("Counter", 0)
-    .animate(
-      {
-        Counter: $(this).text(),
-      },
-      {
-        duration: 40000,
-        easing: "swing",
-        step: function (now) {
-          $(this).text(Math.ceil(now));
-        },
-      }
-    );
+// counter
+
+let counters = document.querySelectorAll(".counter");
+counters.forEach((counter) => {
+  counter.innerText = "0";
+  const updatecounter = () => {
+    const target = +counter.getAttribute("data-target");
+    const c = +counter.innerText;
+    const increment = target / 250;
+    if (c < target) {
+      counter.innerText = `${Math.ceil(c + increment)}`;
+      setTimeout(updatecounter, 150);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  updatecounter();
 });
