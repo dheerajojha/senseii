@@ -43,11 +43,6 @@ $effect: 0.5s ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@mixin br {
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
 // <======================================global start==================================>
 * {
   margin: 0;
@@ -350,19 +345,19 @@ header {
 
   .seo {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/images/index/services/seo.webp");
+      url("../images/index/services/seo.webp");
   }
   .wd {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/images/index/services/technology-wd.webp");
+      url("../images/index/services/technology-wd.webp");
   }
   .gd {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/images/index/services/cd-ld.webp");
+      url("../images/index/services/cd-ld.webp");
   }
   .dm {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("/images/index/services/digital-m.webp");
+      url("../images/index/services/digital-m.webp");
   }
 }
 
@@ -374,21 +369,21 @@ header {
 }
 .seo-ip {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images//services/seo/bg.webp");
+    url("../images//services/seo/bg.webp");
 }
 .dm-ip {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images/services/digital-m/bg.webp");
+    url("../images/services/digital-m/bg.webp");
 }
 
 .gd-ip {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images/services/gd/bg.webp");
+    url("../images/services/gd/bg.webp");
 }
 
 .wd-ip {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images/services/wd/bg.webp");
+    url("../images/services/wd/bg.webp");
 }
 
 .services-card-ip {
@@ -405,7 +400,7 @@ header {
 
 .about-home {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/images/about/bg.webp");
+    url("../images/about/bg.webp");
   @include bg2;
   color: $text_white;
 }
@@ -442,7 +437,7 @@ header {
 // <======================================brand start==================================>
 .brand-wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("/images/index/brand/pic4.jpg");
+    url("../images/index/brand/pic4.jpg");
   color: $text_white;
   background-attachment: fixed;
   .brand-right {
@@ -487,7 +482,7 @@ header {
 
 .contact-home {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("/images/contact/pic1.webp");
+    url("../images/contact/pic1.webp");
   color: $text_white;
 }
 .contact-main {
@@ -539,7 +534,7 @@ footer {
 // <======================================industries start==================================>
 .industries-home {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images/industries/pic1.webp");
+    url("../images/industries/pic1.webp");
   @include bg2;
   color: $text_white;
 }
@@ -555,7 +550,7 @@ footer {
 // <======================================digital-m start==================================>
 .digital-m-home {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("/images/services/service_bg.jpg");
+    url("../images/services/service_bg.jpg");
   color: $text_white;
   @include bg;
 }
