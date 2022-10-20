@@ -15,6 +15,8 @@ window.addEventListener("scroll", function () {
 // input flag
 
 var input = document.querySelector("#phone");
+if(typeof intlTelInput !== "undefined"){
+
 intlTelInput(input, {
   initialCountry: "auto",
   geoIpLookup: function (success, failure) {
@@ -23,9 +25,7 @@ intlTelInput(input, {
       success(countryCode);
     });
   },
-});
-
-// counter
+})};
 
 // counter
 

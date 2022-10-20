@@ -85,7 +85,6 @@ p {
   margin-bottom: 1rem;
 }
 
-
 h1 {
   font-size: $big_font;
 }
@@ -98,7 +97,6 @@ h3 {
 p {
   font-size: $smaller_font;
 }
-
 
 .col-md-6,
 .col-md-2,
@@ -191,12 +189,19 @@ p {
 }
 @media screen and (max-width: 1400px) {
   section {
-    padding: 50px 0;
+    padding: 40px 0;
     transition: $effect;
   }
   header {
     padding: 7px 3%;
     transition: $effect;
+  }
+
+  h1 {
+    font-size: $medium_font;
+  }
+  h2 {
+    font-size: $small_font;
   }
 }
 
@@ -206,12 +211,16 @@ header {
   top: 0;
   right: 0;
   z-index: 1000;
-  .navbar-toggler {
-    :focus {
-      outline: none;
-      border: none;
+
+  .navbar-brand {
+    .navbar-toggler {
+      :focus {
+        outline: none;
+        border: none;
+      }
     }
   }
+
   li {
     a {
       color: $text_white !important;
@@ -289,8 +298,8 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-  .home {
-    padding-top: 4rem;
+  .home-wrapper {
+    padding-top: 1rem;
     height: 160vh;
     transition: $effect;
   }
@@ -461,7 +470,7 @@ header {
       width: 220px;
       height: 300px;
       max-width: 100%;
-      animation: movedown 0.9s linear infinite;
+      animation: rocketlauncher 0.7s 0.8s linear infinite;
     }
     h4 {
       padding: 1rem 0;
